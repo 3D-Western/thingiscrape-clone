@@ -1,5 +1,6 @@
-certifi==2020.4.5.2
-chardet==3.0.4
-idna==2.9
-requests==2.23.0
-urllib3==1.26.5
+certifi==2025.10.5
+chardet==5.2.0
+charset-normalizer==3.4.4
+idna==3.11
+requests==2.32.5
+urllib3==2.5.0

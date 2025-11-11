@@ -4,6 +4,9 @@ import sys
 import argparse
 import os.path
 from collections import OrderedDict
+from dotenv import load_dotenv
+
+load_dotenv()
 
 downloads_path = "./downloads"
 stl_path = os.path.join(downloads_path, "stls")
@@ -20,6 +23,11 @@ thingiverse_api_base = "https://api.thingiverse.com/"
 access_keyword = "?access_token="
 # Go to https://www.thingiverse.com/apps/create and create your own Desktop app
 api_token = os.environ.get('API_TOKEN')
+
+if not api_token:
+    print("ERROR: API_TOKEN environment variable not set.")
+    print("Go to https://www.thingiverse.com/apps/create to create a new app and get your API token.")
+    sys.exit(1)
 
 rest_keywords = {
     "users": "users/",
@@ -189,6 +197,7 @@ def download_objects(rest_url, file_name, mode = "none"):
     data_pd = json.loads(json_file.read())
 
     if mode == "search":
+        print(data_pd) # BUG: hits DNE 
         data_pd = data["hits"]
 
         # The page has objects?
