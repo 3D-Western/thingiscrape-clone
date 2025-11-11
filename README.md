@@ -11,12 +11,26 @@ First you need to install the requirements - there are not that many 😊.
 pip install -r requirements.txt
 ```
 
-You need to add an environment variable containing the Thingiscrape applications API token.
-Contact [@dougbrion](https://github.com/dougbrion) [dajb3@cam.ac.uk](mailto:dajb3@cam.ac.uk) to get the token or create your own Thingiverse application by visiting the following site: [https://www.thingiverse.com/apps](https://www.thingiverse.com/apps)
+### Setting Up Your Thingiverse API Token
 
-```
-export API_TOKEN "<your-api-token>"
-```
+Before using thingiscrape, you need to get an API token from Thingiverse:
+
+1. **Create a Thingiverse Account** (if you don't already have one)
+   - Visit [https://www.thingiverse.com](https://www.thingiverse.com) and sign up
+
+2. **Register a Desktop App**
+   - Go to [https://www.thingiverse.com/apps/create](https://www.thingiverse.com/apps/create)
+   - Fill out the app registration form
+   - **Note:** The "Create App" button is all white and may be hard to see at the bottom of the page
+   - After creating the app, you will receive an **App Token**
+
+3. **Add Your API Token to the Script**
+   - Open `thingiscrape.py` in your text editor
+   - Find line 25 which currently contains: `api_token = os.environ.get('API_TOKEN')`
+   - Replace the token string with your own App Token from step 2
+   - Save the file
+
+Your API token is now configured and ready to use!
 
 ## Usage <a name = "usage"></a>
 
