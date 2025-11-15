@@ -4,7 +4,7 @@ Thingiverse REST API python wrapper
 ## About <a name = "about"></a>
 A python based [Thingiverse.com](https://www.thingiverse.com) object scraper and downloader. The program can search of objects using keywords, licenses, users, categories and then sort the results, for example returning the most popular or newest uploads.
 
-## Getting Started <a name = "getting_started"></a>
+## Getting Started 
 
 First you need to install the requirements - there are not that many 😊.
 ```
@@ -69,7 +69,23 @@ python thingiscrape.py --search "nsfw" --nsfw True --pages 1
 - Automatically skips non-NSFW models during download
 - You can search for any keywords; the NSFW filter ensures only adult content is downloaded
 
-## Usage <a name = "usage"></a>
+## Regular usage 
+
+To see the various options available to you type the following into your terminal.
+
+```
+python thingiscrape.py --help
+```
+
+Example usage:
+
+```
+python thingiscrape.py --search "yoda" --popular 1 --pages 2 --license "cc"
+```
+
+STL 3D model files will be downloaded to `./downloads/stls/` along with a json file containing the results from the request in `./downloads/json/`.
+
+## Usage
 
 To see the various options available to you type the following into your terminal.
 
