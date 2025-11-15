@@ -32,6 +32,43 @@ Before using thingiscrape, you need to get an API token from Thingiverse:
 
 Your API token is now configured and ready to use!
 
+### Accessing NSFW Content (Optional)
+
+To download NSFW (Not Safe For Work) models, you'll need OAuth authentication. Regular API tokens cannot access NSFW content.
+
+#### Setup Steps
+
+1. **Get Your OAuth Credentials**
+   - Go to [https://www.thingiverse.com/apps/](https://www.thingiverse.com/apps/)
+   - Note your **Client ID** and **Client Secret**
+   - Ensure **Redirect URI** is set to: `http://localhost:8080/callback`
+
+2. **Configure Environment Variables**
+   - Create a `.env` file in the project directory:
+     ```
+     THINGIVERSE_CLIENT_ID=your_client_id_here
+     THINGIVERSE_CLIENT_SECRET=your_client_secret_here
+     ```
+   - Or set them as system environment variables
+
+3. **Run with --nsfw Flag**
+   - A browser window will open for you to log in and authorize
+   - The script automatically captures your authentication token
+   - Only models marked as NSFW will be downloaded
+
+#### Example Usage
+
+```bash
+python thingiscrape.py --search "nsfw" --nsfw True --pages 1
+```
+
+#### How It Works
+
+- The `--nsfw True` flag enables OAuth authentication and filters results
+- **Only downloads models where `is_nsfw: true`** in the API response
+- Automatically skips non-NSFW models during download
+- You can search for any keywords; the NSFW filter ensures only adult content is downloaded
+
 ## Usage <a name = "usage"></a>
 
 To see the various options available to you type the following into your terminal.
